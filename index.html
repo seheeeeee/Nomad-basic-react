@@ -16,14 +16,17 @@
 <script type="text/babel">
     const root = document.getElementById('root');
     function App(){
-        const [counter, modifier] = React.useState(0);
-        
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter+1);
+        }
+        //setCounter, 즉 modifier의 역할은 counter를 바꾸고 자동 리렌더링해준다. React.useState(초기값)을 쓰면 [초기값, function]이 나옴
         return(
             <div>
                 <h3>
                     Total clicks: {counter}
                 </h3>
-                <button>Click me</button>
+                <button onClick={onClick}>Click me</button>
             </div>
         )
     };
