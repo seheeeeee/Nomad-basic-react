@@ -16,20 +16,26 @@
 <script type="text/babel">
     const root = document.getElementById('root');
     function App(){
-        const [counter, setCounter] = React.useState(0);
-        const onClick = () => {
-            //setCounter(counter+1); 직전의 state를 기준으로 +1하여 새 state를 넣는 법, 다른 곳에서 counter가 선언될 수 있기 때문에 안전하지 않음
-            setCounter((current) => current + 1) 
-            //확실하게 현재의 값으로 계산이 되서 함수로 선언하는게 더 안전함
-            //현재의 state를 가지고 계산을 한다면 함수로 하는 게 좋음
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (event) => {
+            setMinutes(event.target.value);
         }
-        //setCounter, 즉 modifier의 역할은 counter를 바꾸고 자동 리렌더링해준다. React.useState(초기값)을 쓰면 [초기값, function]이 나옴
         return(
             <div>
-                <h3>
-                    Total clicks: {counter}
-                </h3>
-                <button onClick={onClick}>Click me</button>
+                <h1>
+                    Super Converter                    
+                </h1>
+                <label htmlFor="minutes">Minutes</label>
+                <input 
+                    value={minutes} 
+                    id="minutes" 
+                    placeholder="Minutes" 
+                    type="number" 
+                    onChange={onChange}
+                />
+                <h4>you want to convert {minutes}</h4>
+                <label htmlFor="hours">Hours</label>
+                <input id="hours" placeholder="Hours" type="number" />
             </div>
         )
     };
