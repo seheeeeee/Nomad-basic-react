@@ -11,34 +11,39 @@
   </body>
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
+    //props는 propTypes 로 타입을 지정해줄 수 있음(타입 유효 검사 기능)
+    //isRequired를 쓰면 필수로 넣어야함을 알려줌
+    //만약 필수값이 아닌데 props를 설정하지 않았다면 기본값을 설정할 수 있음(ex, fontSize = 16)
     const root = document.getElementById("root");
-    function Btn({ banana, changeValue }) {
+    function Btn({ text, fontSize = 16 }) {
       return (
         <button
-          onClick={changeValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
             padding: "10px 20px",
             borderRadius: 10,
             border: 0,
-            fontSize: 16,
+            fontSize,
           }}
         >
-          {banana}
+          {text}
         </button>
       );
     }
-    const MemorizedBtn = React.memo(Btn);
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
     function App() {
-      const [value, setValue] = React.useState("Save Change");
       const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <MemorizedBtn banana={value} changeValue={changeValue} />
-          <MemorizedBtn banana="Continue" />
+          <Btn text="revert" fontSize={18} />
+          <Btn text="Continue" />
         </div>
       );
     }
