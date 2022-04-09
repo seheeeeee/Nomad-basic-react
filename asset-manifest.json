@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/NOMAD-BASIC-REACT/static/js/main.3b49bd9e.js",
-    "index.html": "/NOMAD-BASIC-REACT/index.html",
-    "main.3b49bd9e.js.map": "/NOMAD-BASIC-REACT/static/js/main.3b49bd9e.js.map"
+    "main.js": "/Nomad-basic-react/static/js/main.3b49bd9e.js",
+    "index.html": "/Nomad-basic-react/index.html",
+    "main.3b49bd9e.js.map": "/Nomad-basic-react/static/js/main.3b49bd9e.js.map"
   },
   "entrypoints": [
     "static/js/main.3b49bd9e.js"
