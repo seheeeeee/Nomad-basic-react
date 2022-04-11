@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Button from "../component/Button";
 
 function Home() {
@@ -5,7 +6,7 @@ function Home() {
     console.log("cliked");
   };
   return (
-    <div>
+    <Fragment>
       <h2>Welcome to Popular Movies TOP 20</h2>
       <p>choose one movie for details on left List</p>
       <Button
@@ -16,7 +17,7 @@ function Home() {
         width="11rem"
         onClick={onclick}
       />
-    </div>
+    </Fragment>
   );
 }
 
